@@ -1,0 +1,60 @@
+#include <iostream>
+#include <stdlib.h>
+using namespace std;
+
+/**
+ * @brief Считывает значение с клавиатуры с проверкой ввода.
+ * @return Введенное значение.
+ */
+double getValue();
+
+/**
+ * @brief Переводит байты в мегабайты.
+ * @param bytes Количество байтов.
+ * @return Количество мегабайт.
+ */
+double bytesToMegabytes(const double bytes);
+
+/**
+ * @brief Переводит байты в гигабайты.
+ * @param bytes Количество байтов.
+ * @return Количество гигабайт.
+ */
+double bytesToGigabytes(const double bytes);
+
+/**
+ * @brief Точка входа в программу.
+ * @return 0, если программа выполнена корректно, иначе 1.
+ */
+int main()
+{
+    cout << "Enter information volume in bytes: ";
+    double bytes = getValue();
+    
+    cout << "In megabytes: " << bytesToMegabytes(bytes) << " MB" << endl;
+    cout << "In gigabytes: " << bytesToGigabytes(bytes) << " GB" << endl;
+
+    return 0;
+}
+
+double getValue()
+{
+    double value;
+    cin >> value;
+    if (cin.fail() || value < 0)
+    {
+        cout << "Incorrect value" << endl;
+        abort();
+    }
+    return value;
+}
+
+double bytesToMegabytes(const double bytes)
+{
+    return bytes / (1024 * 1024);
+}
+
+double bytesToGigabytes(const double bytes)
+{
+    return bytes / (1024 * 1024 * 1024);
+}
