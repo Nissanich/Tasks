@@ -64,7 +64,7 @@ int main()
 
 int getValidN()
 {
-    int n;
+    int n=0;
     cout << "Введите значение n: ";
     cin >> n;
 
@@ -79,7 +79,7 @@ int getValidN()
 
 double getValidE()
 {
-    double e;
+    double e=0;
     cout << "Введите значение e: ";
     cin >> e;
 
@@ -124,5 +124,5 @@ double sumE(const double e)
 
 double recur(const int i)
 {
-    return  1 /(2*i+1);
+    return  -1/(2*i+1);
 }
