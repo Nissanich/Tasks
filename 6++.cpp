@@ -135,7 +135,27 @@ int main()
     printIndexesLargerThanNext(arr, n);
     cout << endl;
 
-    multiplyOddMultiplesOf3ByIndex(arr, n);
+   // Создаём копию массива
+int* arrCopy = new int[n];
+for (int i = 0; i < n; ++i) {
+    arrCopy[i] = arr[i];
+}
+
+// Выводим индексы элементов, больших следующего
+printIndexesLargerThanNext(arr, n);
+cout << endl;
+
+// Модифицируем копию, а не исходный массив
+multiplyOddMultiplesOf3ByIndex(arrCopy, n);
+
+// Если надо, выводим копию или используем дальше
+// Например, вывод копии:
+for (int i = 0; i < n; ++i) {
+    cout << arrCopy[i] << ' ';
+}
+cout << endl;
+
+delete[] arrCopy;  // освобождаем память
 
     cout << "Измененный массив: ";
     for (size_t i = 0; i < n; ++i)
@@ -161,7 +181,7 @@ void checkN(const int n)
 size_t getSize()
 {
     cout << "Введите размер массива: ";
-    int n;
+    int n=0;
     cin >> n;
     checkN(n);
     return (size_t)n;
@@ -169,7 +189,7 @@ size_t getSize()
 
 int getNumber()
 {
-    int number;
+    int number=0;
     cin >> number;
     if (cin.fail())
     {
