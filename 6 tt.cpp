@@ -137,7 +137,7 @@ int main()
 
    // Создаём копию массива
 int* arrCopy = new int[n];
-for (int i = 0; i < n; ++i) {
+for (size_t i = 0; i < static_cast<size_t>(n); ++i) {
     arrCopy[i] = arr[i];
 }
 
@@ -150,7 +150,7 @@ multiplyOddMultiplesOf3ByIndex(arrCopy, n);
 
 // Если надо, выводим копию или используем дальше
 // Например, вывод копии:
-for (int i = 0; i < n; ++i) {
+for (size_t i=0; i < n; ++i) {
     cout << arrCopy[i] << ' ';
 }
 cout << endl;
